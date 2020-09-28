@@ -30,10 +30,10 @@ ENV HOME /home/theia
 WORKDIR /home/theia
 #COPY --from=0 --chown=theia:theia /home/theia /home/theia
 COPY --from=0 /home/theia /home/theia
-EXPOSE 3000
+EXPOSE 52895
 ENV SHELL=/bin/bash \
     THEIA_DEFAULT_PLUGINS=local-dir:/home/theia/plugins
 ENV USE_LOCAL_GIT true
 ENV PS1='\[\e[0;32m\]cucum\[\e[0m\]:\[\e[0m\]\w\[\e[0m\]$\[\e[m\] \[\e0'
 #USER theia
-ENTRYPOINT [ "node", "/home/theia/src-gen/backend/main.js", "/home/project", "--hostname=0.0.0.0" ]
+ENTRYPOINT [ "node", "/home/theia/src-gen/backend/main.js", "/home/project", "--hostname=0.0.0.0", "--port=52895" ]
